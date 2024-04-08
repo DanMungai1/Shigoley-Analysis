@@ -1,0 +1,231 @@
+---
+title: "Fish Diseases-Parasite Questionnaire"
+format: docx
+editor: visual
+editor_options: 
+  chunk_output_type: console
+execute: 
+  echo: false
+  warning: false
+---
+
+```{r}
+library(readxl)
+library(tidyverse)
+library(gtsummary)
+Farmers <- read_excel("data/Farmers_shigoley.xlsx")
+```
+
+## The role of respondents
+
+The majority of respondents in this study were owners of the fish farmers that were visited for the research. As illustrated in @tbl-role 72% of the respondents were owners of the establishments, 25% were managers while only one farm was owned by a community group. The owners ran their own farms while only a few contracted managers. The majority of the aquaculture farms were integrated with crop farming but a few were purely fish farms and they included Mwea fish farm, kiama fish.
+
+```{r}
+#| label: tbl-role
+#| tbl-cap: The Role of respondents in the fish farms
+Farmers |> 
+  select(role) |> 
+  tbl_summary()
+```
+
+## Experience in fish farming
+
+The experience of respondents was determined through the number of years they practiced fish farming and as illustrated in @tbl-experience, experience averaged 6.7 years. However, there were farmers who had entered the space and others who had been in the field for 24 years.
+
+```{r}
+#| label: tbl-experience
+#| tbl-cap: Respondents aquaculture experience
+Farmers |> 
+  select(Experience) |> 
+  tbl_summary(type = Experience ~ "continuous2",
+              statistic = Experience ~ c("{mean} ({sd})", "{min}", "{max}"))
+```
+
+## Size of the fish farm
+
+The study targeted both small scale and large scale fish farms depending on the total size of the ponds calculated also from the number of ponds. Majority of the respondents' land size ranged between 100 and 500 square meters meaning that most were small scale farmers. The illustration of @tbl-farmsize showed that only 25% had land sizes above 500 metres squared.
+
+```{r}
+#| label: tbl-farmsize
+#| tbl-cap: Respondents aquaculture Aquaculture Farm Size
+Farmers |> 
+  select(`farm size`) |> 
+  tbl_summary()
+```
+
+## Encounter with disease and parasites
+
+@tbl-encdis shows that 50% of the respondents had not encountered any diseases or parasites or most probably were not aware of any diseases and parasites while 36% had distinctly encountered parasites and diseases in their farms, however 11% were not sure. The results indicated a lack of knowledge of fish diseases and parasites.
+
+```{r}
+#| label: tbl-encdis
+#| tbl-cap: Encounter with disease and parasites
+Farmers |> 
+  select(`disease-parasite encounter`) |> 
+  tbl_summary()
+```
+
+## Observation of fish behavior
+
+As illustrated by @tbl-observ, most of the respondents were highly observant of the behavior of the fish mainly during feeding.
+
+```{r}
+#| label: tbl-observ
+#| tbl-cap: Fish observation
+Farmers |> 
+  select(`fish behaviour observation`) |> 
+  tbl_summary()
+```
+
+## Ability to identify abnormal fish behavior
+
+According to @tbl-abnormal, a majority of respondents had the capability of identifying abnormal fish behavior. Some of the abnormal fish behaviors identifiable by the farmers are illustrated in @tbl-abnor.
+
+```{r}
+#| label: tbl-abnormal
+#| tbl-cap: Recognition of abnormal fish behavior
+Farmers |> 
+  select(`fish abnormal behaviour identification`) |> 
+  tbl_summary(type = everything() ~ "categorical")
+```
+
+## Abnormal fish behavior and characteristics
+
+Among the most observed abnormal fish behaviors were lethargy, abnormal erratic swimming behaviors, unusual lumps and growth in the skin, change in coloration and lesions and sores presence on the skin. Fish isolation was only observed among ornamental fishes but not tilapia and catfish.
+
+```{r}
+#| label: tbl-abnor
+#| tbl-cap: Abnormal fish behaviors
+Farmers |> 
+  select(`Change in coloration`:Isolation) |> 
+  tbl_summary()
+```
+
+## Frequency of monitoring aquaculture water quality
+
+The illustration in @tbl-wqual shows that quality monitoring was done by the farmers at a higher frequency. However, the monitoring was not done using scientific gadgets and equipment but only through observation.
+
+```{r}
+#| label: tbl-wqual
+#| tbl-cap: Water Quality Monitoring Frequency
+Farmers |> 
+  select(`water quality monitoring`) |> 
+  tbl_summary()
+```
+
+## The frequency of fish mortalities
+
+According to @tbl-fimortal, fish mortality were recorded at a lower rate in the fish farms.
+
+```{r}
+#| label: tbl-fimortal
+#| tbl-cap: Mortality Frequency
+Farmers |> 
+  select(`fish mortality frequency`) |> 
+  tbl_summary()
+```
+
+## Presence of early warning signs of diseases and parasites
+
+Disease outbreak signs were not identifiable to 44% of the respondents but 56% of the respondents indicated presence of early disease outbreak signs as illustrate in @tbl-doutbreak
+
+```{r}
+#| label: tbl-doutbreak
+#| tbl-cap: Signs of Disease outbreak
+Farmers |> 
+  select(`early disease outrbreak warning`) |> 
+  tbl_summary(type = everything() ~ "categorical")
+```
+
+## The early signs of diseases and parasites
+
+Fish mortality and erratic swimming were seen as early signs of disease outbreak. Failure to normal feeding was as well observed as early sign. Then onset of cold diseases also mean outbreak of diseases for some farmers. @tbl-edoutbreak breaks down the early signs of diseases outbreaks.
+
+```{r}
+#| label: tbl-edoutbreak
+#| tbl-cap: Early Signs of Disease outbreak
+Farmers |> 
+  select(`early warnings`) |> 
+  tbl_summary()
+```
+
+## Disease and pest management
+
+Majority of the respondents isolated the sick fish as a form of management in case of a disease outbreak while recording and reporting. They reviewed and adjusted their feeding practices while only a few consulted veterinarians as a few treated with medication as @tbl-dmanage shows.
+
+```{r}
+#| label: tbl-dmanage
+#| tbl-cap: Management of Disease outbreaks
+Farmers |> 
+  select(`Isolate the infected fish`:`Record and report`) |> 
+  tbl_summary()
+```
+
+## Methods of treatment
+
+The respondents majorly used industrial salts, lime, amoxyl and table salt including aloe Vera to treat their sick fish while only a few used copper II sulfate and Potassium permanganate as @tbl-treatment illustrates.
+
+```{r}
+#| label: tbl-treatment
+#| tbl-cap: Disease and Parasite treatment
+Farmers |> 
+  select(Formalin:`Table salt`) |> 
+  tbl_summary(missing = "no")
+```
+
+## Possession of fish diseases and parasites knowledge
+
+Fish parasites and disease knowledge is very scarce among fish farmers. However, according to @tbl-training, 64% of the respondents had been trained on fish diseases through workshops online sources and experts according to @tbl-trainingsource.
+
+```{r}
+#| label: tbl-treat
+#| tbl-cap: Disease and Parasite Knowledge
+Farmers |> 
+  select(`disease-parasite knowledge`) |> 
+  tbl_summary()
+```
+
+## fish health-disease formal training
+
+```{r}
+#| label: tbl-training
+#| tbl-cap: Disease and Parasite Knowledge Training
+Farmers |> 
+  select(`fish health-disease formal training`) |> 
+  tbl_summary(type = `fish health-disease formal training` ~ "categorical")
+```
+
+## Sources of information on fish diseases and parasites
+
+```{r}
+#| label: tbl-trainingsource
+#| tbl-cap: Disease and Parasite Knowledge Training Source
+Farmers |> 
+  select(Workshops:`Discussions with other farmers`) |> 
+  tbl_summary(missing = "no")
+```
+
+## Management challenges associated with fish diseases and parasites
+
+Predators and lack of medication top the list of challenges faced by fish farmers as illustrated in @tbl-challenge.
+
+```{r}
+#| label: tbl-challenge
+#| tbl-cap: Disease and Parasite Management Challenges
+Farmers |> 
+  select(`Disease identification`:`No medication`) |> 
+  tbl_summary(missing = "no")
+```
+
+## Interest in fish health management training and the topics of interest
+
+Majority of the respondents would like to trained on disease identification and diagnosis.
+
+```{r}
+#| label: tbl-tinterest
+#| tbl-cap: Training prospects
+
+Farmers |> 
+  select(`Disease identification and diagnosis`:`Monitoring and early detection`) |> 
+  tbl_summary(missing = "no")
+```
