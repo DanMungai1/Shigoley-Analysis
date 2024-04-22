@@ -1,0 +1,505 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Fisheries Officers Quantitative Analysis},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Fisheries Officers Quantitative Analysis}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\subsection{Role of officers
+interviewed}\label{role-of-officers-interviewed}
+
+The illustration of Table~\ref{tbl-role} indicates that 73\% of the
+surveyed government officers were fisheries officers while only 27\%
+were extension officers. This meant that most of the survey government
+officers were located in stations where farmers popped in seeking
+aquaculture information. Extension officers were very few thereby
+indicating a low level of extension services in the aquaculture sector.
+
+\begin{longtable}[]{@{}lc@{}}
+
+\caption{\label{tbl-role}The Role of government officers interviewed}
+
+\tabularnewline
+
+\toprule\noalign{}
+\textbf{Characteristic} & \textbf{N = 11} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Role & \\
+Extension officer & 3 (27\%) \\
+Fisheries officer & 8 (73\%) \\
+
+\end{longtable}
+
+\subsection{Aquaculture Officers Education
+Level}\label{aquaculture-officers-education-level}
+
+Majority of the officers held a bachelor's degree (82\%) with some
+holding masters degrees and diplomas. The results showed that most of
+the employed officers had an undergradaute education thereby indicating
+a significant level of education.
+
+\begin{longtable}[]{@{}lc@{}}
+
+\caption{\label{tbl-edulvl}Education of Level of Government officers in
+the Aquaculture Sector}
+
+\tabularnewline
+
+\toprule\noalign{}
+\textbf{Characteristic} & \textbf{N = 11} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+education level & \\
+Bachelor's Degree & 9 (82\%) \\
+Diploma & 1 (9.1\%) \\
+Master's degree & 1 (9.1\%) \\
+
+\end{longtable}
+
+\subsection{Formal Training in Fish
+Health}\label{formal-training-in-fish-health}
+
+A considerable proportion of officers had received formal training on
+fish health that included subjects such as fish pathology, parasitology
+and general fish hygiene.
+
+\begin{longtable}[]{@{}lc@{}}
+
+\caption{\label{tbl-fhealth}Formal fish health training}
+
+\tabularnewline
+
+\toprule\noalign{}
+\textbf{Characteristic} & \textbf{N = 11} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+formal fish health training & \\
+No & 4 (36\%) \\
+Yes & 7 (64\%) \\
+
+\end{longtable}
+
+\subsection{Knowledge on Common fish
+diseases}\label{knowledge-on-common-fish-diseases}
+
+A considerable proportion of officers had somewhatfamiliar knowledge on
+common fish diseases (55\%) while only 36\% were very familiar with
+common fish diseases. Interestingly 9\% of the officers were not familar
+at all with common fish diseases.
+
+\begin{longtable}[]{@{}lc@{}}
+
+\caption{\label{tbl-diseases}Common Fish Diseases Knowledge}
+
+\tabularnewline
+
+\toprule\noalign{}
+\textbf{Characteristic} & \textbf{N = 11} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+common fish diseases knowledge & \\
+Not at all familiar & 1 (9.1\%) \\
+Somewhat familiar & 6 (55\%) \\
+Very familiar & 4 (36\%) \\
+
+\end{longtable}
+
+\subsection{Parasites}\label{parasites}
+
+The fish parasites shown in Table~\ref{tbl-parasites} were the parasites
+that most of the fisheries could easily identify because they were
+familiar to them.
+
+\begin{longtable}[]{@{}lc@{}}
+
+\caption{\label{tbl-parasites}Common Fish Parasites}
+
+\tabularnewline
+
+\toprule\noalign{}
+\textbf{Characteristic} & \textbf{N = 20} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+common parasites & \\
+& 1 (5.0\%) \\
+Bacteria & 1 (5.0\%) \\
+Cestodes & 1 (5.0\%) \\
+Clinostomum & 1 (5.0\%) \\
+Dactylogyrus & 1 (5.0\%) \\
+Ichthyobo & 1 (5.0\%) \\
+Leeches & 1 (5.0\%) \\
+Round worms & 1 (5.0\%) \\
+Tape worms & 1 (5.0\%) \\
+Tapeworm & 1 (5.0\%) \\
+1. Acathocephalans & 1 (5.0\%) \\
+Flukes & 1 (5.0\%) \\
+Fungus & 1 (5.0\%) \\
+Gyro dactyls & 1 (5.0\%) \\
+Leaches & 1 (5.0\%) \\
+Nematodes & 1 (5.0\%) \\
+Protozoas & 1 (5.0\%) \\
+Round worm & 1 (5.0\%) \\
+Tape worm & 1 (5.0\%) \\
+Uronema & 1 (5.0\%) \\
+
+\end{longtable}
+
+\subsection{Implementation of
+Biosecurity}\label{implementation-of-biosecurity}
+
+The implementation of biosecurity measures and plans are not among the
+subjects that most officers had knowledge about because 60\% of the
+interviewed officers only had moderate knowledge 10\% were not aware at
+all while only 30\% had enough knoledge on biosecurity measures as
+illustrated in Table~\ref{tbl-biosecurity}.
+
+\begin{longtable}[]{@{}lc@{}}
+
+\caption{\label{tbl-biosecurity}Knowledge of the Implementation of
+Biosecurity}
+
+\tabularnewline
+
+\toprule\noalign{}
+\textbf{Characteristic} & \textbf{N = 11} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+biosecurity implementation & \\
+Highly knowledgeable & 3 (30\%) \\
+Moderately knowledgeable & 6 (60\%) \\
+Not knowledgeable & 1 (10\%) \\
+
+\end{longtable}
+
+\subsection{Tools and Techniques of identifying fish diseases and health
+issues}\label{tools-and-techniques-of-identifying-fish-diseases-and-health-issues}
+
+As illustrated in Table~\ref{tbl-tools} 90\% were of officers
+interviewed used clinical observation or simply observation as a tool of
+identifying fish health related issues. In addition only 40\% used
+microscopic examination to investigate fish health concerns while only
+20\% ever used PCR or any molecular testing methods.
+
+\begin{longtable}[]{@{}lc@{}}
+
+\caption{\label{tbl-tools}Tools and Tecchniques}
+
+\tabularnewline
+
+\toprule\noalign{}
+\textbf{Characteristic} & \textbf{N = 11} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Microscopic examination & 4 (40\%) \\
+PCR testing & 2 (20\%) \\
+Clinical observation & 9 (90\%) \\
+
+\end{longtable}
+
+\subsection{Frequency of
+consultations}\label{frequency-of-consultations}
+
+The survey sought to determine the frequency at which the officers were
+consulted by fish farmes. As illustrated in Table~\ref{tbl-consult},
+most officers indicated that they were consulted occassionally to
+provide information on fish health while 40\% were frequently consulted
+while very few 10\% were rarely consulted. This showed that farmers were
+actively seeking information from government establishments.
+
+\begin{longtable}[]{@{}lc@{}}
+
+\caption{\label{tbl-consult}Consultations from Fish Farmers}
+
+\tabularnewline
+
+\toprule\noalign{}
+\textbf{Characteristic} & \textbf{N = 11} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+consultation frequency & \\
+Frequently & 4 (40\%) \\
+Occassionaly & 5 (50\%) \\
+Rarely & 1 (10\%) \\
+
+\end{longtable}
+
+\subsection{Dissemination of Fish Health
+Information}\label{dissemination-of-fish-health-information}
+
+The Kenya Aquaculture space is inundated with worshops and seminars and
+according to Table~\ref{tbl-disse} most dissemination of fish health
+information takes place during workshops and seminars (67\%), followed
+by online platforms (33\%) and lastly on printed materials (11\%) which
+are rare in the public domain. Other sources of information are during
+farm visits and farmer to farmer exchange of information and finally in
+organised farmer group trainings and meetings. There are usually
+collaborations between departments and agencies to enhance the sharing
+of information.
+
+\begin{longtable}[]{@{}lc@{}}
+
+\caption{\label{tbl-disse}Dissemination of Information}
+
+\tabularnewline
+
+\toprule\noalign{}
+\textbf{Characteristic} & \textbf{N = 11} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Workshops and seminars & 6 (67\%) \\
+Printed materials & 1 (11\%) \\
+Online platforms & 3 (33\%) \\
+
+\end{longtable}
+
+\subsection{Challenges in mitigating the effects of fish diseases and
+parasites}\label{challenges-in-mitigating-the-effects-of-fish-diseases-and-parasites}
+
+The challenges faced by government officers are illustrated in
+Table~\ref{tbl-challenge} below.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.8919}}
+  >{\centering\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.1081}}@{}}
+
+\caption{\label{tbl-challenge}Challenges}
+
+\tabularnewline
+
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Characteristic}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\textbf{N = 15}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+challenges & \\
+cestodes & 1 (6.7\%) \\
+insufficient funding on movement to farmers/ extension services & 1
+(6.7\%) \\
+nematodes & 1 (6.7\%) \\
+Acathocephalans & 1 (6.7\%) \\
+cost of treatment & 1 (6.7\%) \\
+Few laboratories and lack of analysis/ testing equipment & 1 (6.7\%) \\
+Inadequate materials of reference & 1 (6.7\%) \\
+Lack diagnostic tools and reagents and a specialized lab to ascertain
+occurrences of the parasites & 1 (6.7\%) \\
+Lack of lab services nearby & 1 (6.7\%) \\
+Lack of sample collection and testing tools & 1 (6.7\%) \\
+Language understanding & 1 (6.7\%) \\
+methods of specific diseases control & 1 (6.7\%) \\
+NA & 1 (6.7\%) \\
+Reaching to them is a challenge & 1 (6.7\%) \\
+Some are asking for feeds and ponds cleaning facilitation from our side
+& 1 (6.7\%) \\
+
+\end{longtable}
+
+\subsection{Specific areas of fish health
+management}\label{specific-areas-of-fish-health-management}
+
+The officers indicated interest in learning common and advanced diseases
+identification tools and techniques and methods. Information on disease
+management would be valuable to them and prevention of diases, pests and
+parasites.
+
+\subsection{Feedback from Farmers}\label{feedback-from-farmers}
+
+Feedback from farmers majorly is verbal when officers meet in farms
+during research or extension excursions.
+
+\subsection{Methods of evaluating success of
+interverntions}\label{methods-of-evaluating-success-of-interverntions}
+
+Methods of monitoring and evalauting the success of interventions on
+fish health are illustrated in Table~\ref{tbl-success} below.
+
+\begin{longtable}[]{@{}lc@{}}
+
+\caption{\label{tbl-success}Assessment of the Success of Interventions}
+
+\tabularnewline
+
+\toprule\noalign{}
+\textbf{Characteristic} & \textbf{N = 11} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+interventions success assessment & \\
+estimation of the affected fish verses the healthy ones & 1 (10\%) \\
+Feedback during field visit or on phone & 1 (10\%) \\
+Great improvement especially in management of fish farms & 1 (10\%) \\
+Making frequent farm visit & 1 (10\%) \\
+NA & 1 (10\%) \\
+Not quantitave results can be observed & 1 (10\%) \\
+Reduced number of pond fish kills & 1 (10\%) \\
+The management level is average & 1 (10\%) \\
+Well being of the fish & 1 (10\%) \\
+When the affected fish regain normalcy & 1 (10\%) \\
+
+\end{longtable}
+
+
+
+\end{document}

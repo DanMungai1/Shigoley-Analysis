@@ -1,0 +1,163 @@
+---
+title: "Fisheries Officers Quantitative Analysis"
+format: docx
+editor: visual
+editor_options: 
+  chunk_output_type: console
+execute: 
+  echo: false
+  warning: false
+---
+
+```{r}
+library(readxl)
+library(tidyverse)
+library(gtsummary)
+officers <- read_excel("data/Fisheries_Officers_Extension_Officers.xlsx")
+```
+
+## Role of officers interviewed
+
+The illustration of @tbl-role indicates that 73% of the surveyed government officers were fisheries officers while only 27% were extension officers. This meant that most of the survey government officers were located in stations where farmers popped in seeking aquaculture information. Extension officers were very few thereby indicating a low level of extension services in the aquaculture sector. 
+
+```{r}
+#| label: tbl-role
+#| tbl-cap: The Role of government officers interviewed
+officers %>% select(Role) %>% 
+  tbl_summary()
+```
+
+
+## Aquaculture Officers Education Level
+
+Majority of the officers held a bachelor's degree (82%) with some holding masters degrees and diplomas. The results showed that most of the employed officers had an undergradaute education thereby indicating a significant level of education. 
+
+```{r}
+#| label: tbl-edulvl
+#| tbl-cap: Education of Level of Government officers in the Aquaculture Sector
+officers %>% select(`education level`) %>% 
+  tbl_summary()
+
+```
+
+## Formal Training in Fish Health
+
+A considerable proportion of officers had received formal training on fish health that included subjects such as fish pathology, parasitology and general fish hygiene. 
+
+```{r}
+#| label: tbl-fhealth
+#| tbl-cap: Formal fish health training
+officers %>% select(`formal fish health training`) %>% 
+  tbl_summary(type = `formal fish health training` ~ "categorical")
+
+```
+
+## Knowledge on Common fish diseases
+
+A considerable proportion of officers had somewhatfamiliar  knowledge on common fish diseases (55%) while only 36% were very familiar with common fish diseases. Interestingly 9% of the officers were not familar at all with common fish diseases. 
+
+```{r}
+#| label: tbl-diseases
+#| tbl-cap: Common Fish Diseases Knowledge
+officers %>% select(`common fish diseases knowledge`) %>% 
+  tbl_summary()
+
+```
+
+## Parasites
+
+The fish parasites shown in @tbl-parasites were the parasites that most of the fisheries could easily identify because they were familiar to them. 
+
+```{r}
+#| label: tbl-parasites
+#| tbl-cap: Common Fish Parasites
+
+officers %>% select(`common parasites`) %>% 
+  separate_longer_delim(`common parasites`, delim = ",") %>% 
+  filter(`common parasites` != "Yes") %>% 
+  mutate(`common parasites` = str_to_sentence(`common parasites`)) %>% 
+  tbl_summary(missing = "no")
+
+```
+
+
+## Implementation of Biosecurity
+
+The implementation of biosecurity measures and plans are not among the subjects that most officers had knowledge about because 60% of the interviewed officers only had moderate knowledge 10% were not aware at all while only 30% had enough knoledge on biosecurity measures as illustrated in @tbl-biosecurity.
+
+```{r}
+#| label: tbl-biosecurity
+#| tbl-cap: Knowledge of the Implementation of Biosecurity
+
+officers %>% select(`biosecurity implementation`) %>% 
+  tbl_summary(missing = "no")
+```
+
+## Tools and Techniques of identifying fish diseases and health issues
+
+As illustrated in @tbl-tools 90% were of officers interviewed used clinical observation or simply observation as a tool of identifying fish health related issues. In addition only 40% used microscopic examination to investigate fish health concerns while only 20% ever used PCR or any molecular testing methods. 
+
+```{r}
+#| label: tbl-tools
+#| tbl-cap: Tools and Tecchniques
+
+officers %>% select(`Microscopic examination`:`Clinical observation`) %>% 
+  tbl_summary(missing = "no")
+```
+
+## Frequency of consultations
+
+The survey sought to determine the frequency at which the officers were consulted by fish farmes. As illustrated in @tbl-consult, most officers indicated that they were consulted occassionally to provide information on fish health while 40% were frequently consulted while very few 10% were rarely consulted. This showed that farmers were actively seeking information from government establishments. 
+
+```{r}
+#| label: tbl-consult
+#| tbl-cap: Consultations from Fish Farmers
+
+officers %>% select(`consultation frequency`) %>% 
+  tbl_summary(missing = "no")
+```
+
+## Dissemination of Fish Health Information
+
+The Kenya Aquaculture space is inundated with worshops and seminars and according to @tbl-disse most dissemination of fish health information takes place during workshops and seminars (67%), followed by online platforms (33%) and lastly on printed materials (11%) which are rare in the public domain. Other sources of information are during farm visits and farmer to farmer exchange of information and finally in organised farmer group trainings and meetings. There are usually collaborations between departments and agencies to enhance the sharing of information. 
+
+```{r}
+#| label: tbl-disse
+#| tbl-cap: Dissemination of Information
+
+officers %>% select(`Workshops and seminars`:`Online platforms`) %>% 
+  tbl_summary(missing = "no")
+```
+
+## Challenges in mitigating the effects of fish diseases and parasites
+
+The challenges faced by government officers are illustrated in @tbl-challenge below. 
+
+```{r}
+#| label: tbl-challenge
+#| tbl-cap: Challenges
+
+officers %>% select(challenges) %>% 
+  separate_longer_delim(challenges, delim = ",") %>% 
+  tbl_summary(missing = "no")
+```
+
+## Specific areas of fish health management
+
+The officers indicated interest in learning common and advanced diseases identification tools and techniques and methods. Information on disease management would be valuable to them and prevention of diases, pests and parasites. 
+
+## Feedback from Farmers
+Feedback from farmers majorly is verbal when officers meet in farms during research or extension excursions. 
+
+## Methods of evaluating success of interverntions
+
+Methods of monitoring and evalauting the success of interventions on fish health are illustrated in @tbl-success below. 
+```{r}
+#| label: tbl-success
+#| tbl-cap: Assessment of the Success of Interventions
+
+officers %>% select(`interventions success assessment`) %>% 
+  tbl_summary(missing = "no")
+```
+
+
